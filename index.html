@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#08727d">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MyChat</title>
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- MAIN CONTAINER -->
+
+    <div
+        class="container"
+        id="container"
+    >
+
+
+        <!-- =========================
+             LOGIN FORM
+        ========================== -->
+
+        <div class="form-container login-container">
+
+            <form id="loginForm">
+
+                <h1>Login</h1>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-box">
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="Email"
+                        required
+                    >
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-box">
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Password"
+                        required
+                    >
+
+                    <i class="fa-solid fa-lock"></i>
+
+                </div>
+
+
+                <!-- FORGOT PASSWORD -->
+
+                <a
+                    href="#"
+                    class="forgot"
+                    id="forgotPassword"
+                >
+                    Forgot Password?
+                </a>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button type="submit">
+                    Login
+                </button>
+
+
+                <!-- SOCIAL LOGIN TEXT -->
+
+                <p class="social-text">
+                    or login with social platforms
+                </p>
+
+
+                <!-- SOCIAL ICONS -->
+
+                <div class="social-icons">
+
+                    <a href="#">
+                        <i class="fa-brands fa-google"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- =========================
+             REGISTER FORM
+        ========================== -->
+
+        <div class="form-container register-container">
+
+            <form id="registerForm">
+
+                <h1>Registration</h1>
+
+
+                <!-- USERNAME -->
+
+                <div class="input-box">
+
+                    <input
+                        type="text"
+                        id="registerUsername"
+                        placeholder="Username"
+                        required
+                    >
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-box">
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        placeholder="Email"
+                        required
+                    >
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-box">
+
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Password"
+                        required
+                    >
+
+                    <i class="fa-solid fa-lock"></i>
+
+                </div>
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button type="submit">
+                    Register
+                </button>
+
+
+                <p class="social-text">
+                    or register with social platforms
+                </p>
+
+
+                <!-- SOCIAL ICONS -->
+
+                <div class="social-icons">
+
+                    <a href="#">
+                        <i class="fa-brands fa-google"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- =========================
+             BLUE ANIMATION PANELS
+        ========================== -->
+
+        <div class="overlay-container">
+
+
+            <!-- LEFT PANEL -->
+
+            <div class="overlay-panel overlay-left">
+
+                <h1>Hello, Welcome!</h1>
+
+                <p>
+                    Don't have an account?
+                </p>
+
+
+                <button
+                    type="button"
+                    class="outline-button"
+                    id="register"
+                >
+                    Register
+                </button>
+
+            </div>
+
+
+
+            <!-- RIGHT PANEL -->
+
+            <div class="overlay-panel overlay-right">
+
+                <h1>Welcome Back!</h1>
+
+                <p>
+                    Already have an account?
+                </p>
+
+
+                <button
+                    type="button"
+                    class="outline-button"
+                    id="login"
+                >
+                    Login
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script
+        type="module"
+        src="script.js"
+    ></script>
+
+
+</body>
+
+</html>

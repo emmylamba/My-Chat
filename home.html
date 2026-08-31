@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#08727d">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>MyChat</title>
+
+    <link
+        rel="stylesheet"
+        href="home.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- MAIN CHAT APP -->
+
+    <div class="chat-app">
+
+
+        <!-- =====================
+             SIDEBAR
+        ====================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <i class="fa-solid fa-comments"></i>
+
+                <span>MyChat</span>
+
+            </div>
+
+
+            <!-- USER PROFILE -->
+
+            <div class="my-profile">
+
+                <div class="avatar" id="myAvatar">
+                    U
+                </div>
+
+
+                <div class="profile-info">
+
+                    <h3 id="myUsername">
+                        Loading...
+                    </h3>
+
+                    <p id="myStatus">
+                        Online
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-search"></i>
+
+                <input
+                    type="text"
+                    id="searchUsers"
+                    placeholder="Search users..."
+                >
+
+            </div>
+
+
+            <!-- USERS LIST -->
+
+            <div
+                class="users-list"
+                id="usersList"
+            >
+
+                <div class="loading">
+                    Loading users...
+                </div>
+
+            </div>
+
+
+            <!-- LOGOUT -->
+
+            <button
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+
+        </aside>
+
+
+
+        <!-- =====================
+             CHAT AREA
+        ====================== -->
+
+        <main class="chat-area">
+
+
+            <!-- NO CHAT SELECTED -->
+
+            <div
+                class="welcome-screen"
+                id="welcomeScreen"
+            >
+
+                <i class="fa-solid fa-comments"></i>
+
+                <h1>
+                    Welcome to MyChat
+                </h1>
+
+                <p>
+                    Select a user to start chatting.
+                </p>
+
+            </div>
+
+
+
+            <!-- CHAT CONTAINER -->
+
+            <div
+                class="chat-container"
+                id="chatContainer"
+            >
+
+
+                <!-- CHAT HEADER -->
+
+                <div class="chat-header">
+
+                    <button
+                        type="button"
+                        class="back-button"
+                        id="backButton"
+                        aria-label="Back to users"
+                    >
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+
+                    <div class="chat-user">
+
+                        <div
+                            class="avatar"
+                            id="chatAvatar"
+                        >
+                            U
+                        </div>
+
+
+                        <div>
+
+                            <h3
+                                id="chatUsername"
+                            >
+                                Username
+                            </h3>
+
+
+                            <p id="chatStatus">
+                                Offline
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MESSAGES -->
+
+                <div
+                    class="messages"
+                    id="messages"
+                >
+
+                </div>
+
+
+
+                <!-- MESSAGE INPUT -->
+
+                <form
+                    class="message-form"
+                    id="messageForm"
+                >
+
+                    <input
+                        type="text"
+                        id="messageInput"
+                        placeholder="Type a message..."
+                        autocomplete="off"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                    >
+
+                        <i
+                            class="fa-solid fa-paper-plane"
+                        ></i>
+
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <script
+        type="module"
+        src="home.js"
+    ></script>
+
+
+</body>
+
+</html>
