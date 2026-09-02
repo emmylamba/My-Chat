@@ -727,87 +727,73 @@ async function openChat(user) {
     }, 300);
 
 }
-
-
 // ========================================
 // MARK MESSAGES AS READ
 // ========================================
 
 async function markMessagesAsRead(chatId) {
 
+    if (!currentUser || !chatId) {
+        return;
+    }
+
+    // 1. Optimistic UI update (clears badge immediately)
+    if (selectedUser && conversations[selectedUser.uid]) {
+        conversations[selectedUser.uid] = {
+            ...conversations[selectedUser.uid],
+            unreadFor: {
+                ...(conversations[selectedUser.uid].unreadFor || {}),
+                [currentUser.uid]: 0
+            }
+        };
+        renderUsers();          // ← badge disappears right away
+    }
+
     try {
+        const chatRef = doc(db, "chats", chatId);
 
-        const messagesRef =
-            collection(
-                db,
-                "chats",
-                chatId,
-                "messages"
-            );
+        // 2. Reset unread counter in Firestore
+        await setDoc(
+            chatRef,
+            {
+                [`unreadFor.${currentUser.uid}`]: 0
+            },
+            { merge: true }
+        );
 
+        // 3. Mark individual messages as read
+        const messagesRef = collection(db, "chats", chatId, "messages");
 
-        const unreadQuery =
-            query(
-                messagesRef,
-                where(
-                    "receiverId",
-                    "==",
-                    currentUser.uid
-                )
-            );
+        const unreadQuery = query(
+            messagesRef,
+            where("receiverId", "==", currentUser.uid)
+        );
 
-
-        const snapshot =
-            await getDocs(
-                unreadQuery
-            );
-
+        const snapshot = await getDocs(unreadQuery);
 
         const updates = [];
 
+        snapshot.forEach((messageDoc) => {
+            const message = messageDoc.data();
 
-        snapshot.forEach(
-            (messageDoc) => {
-
-                const message =
-                    messageDoc.data();
-
-                if (
-                    !message.readAt
-                ) {
-
-                    updates.push(
-                        updateDoc(
-                            messageDoc.ref,
-                            {
-                                readAt:
-                                    serverTimestamp()
-                            }
-                        )
-                    );
-
-                }
-
+            if (!message.readAt) {
+                updates.push(
+                    updateDoc(messageDoc.ref, {
+                        readAt: serverTimestamp()
+                    })
+                );
             }
-        );
+        });
 
-
-        await Promise.all(
-            updates
-        );
-
+        if (updates.length > 0) {
+            await Promise.all(updates);
+        }
 
     } catch (error) {
-
-        console.error(
-            "Mark read error:",
-            error
-        );
-
+        console.error("Mark messages as read error:", error);
+        // Optional: you could re-fetch conversations here if you want
     }
-
 }
-
 
 // ========================================
 // GET CHAT ID
